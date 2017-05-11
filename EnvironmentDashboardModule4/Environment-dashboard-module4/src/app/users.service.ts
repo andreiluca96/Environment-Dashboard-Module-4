@@ -9,21 +9,20 @@ import {Users} from './users/users';
 export class UsersService {
   private users;
   private url = 'http://localhost:8100/v1/users';
-  constructor(private __http: Http) {
-    
-   }
+  constructor(private __http: Http) { }
 
    getUsers() : Observable<Users[]> {
      return this.__http.get(this.url).map(res => res.json());
    }
 
    addUsers(user: Users) {
-     const headers = new Headers({'Content-Type': 'application/json'});
-     this.__http
-     .post(this.url, JSON.stringify(user), headers)
-    .subscribe((res: Response) => {
-    this.users = res.json();
-    });
+      const myHeaders = new Headers({'Content-Type': 'application/json'});
+      console.log(JSON.stringify(user));
+      this.__http
+      .post(this.url, JSON.stringify(user), {headers: myHeaders})
+      .toPromise()
+      .then(res => res.json().data as Users)
+      .catch(this.handleError);
    }
 
    private handleError(error: any): Promise<any> {
