@@ -1,10 +1,10 @@
-import { EnvironmentDashboardModule4Page } from './app.po';
+import { MyappPage } from './app.po';
 
-describe('environment-dashboard-module4 App', () => {
-  let page: EnvironmentDashboardModule4Page;
+describe('myapp App', function() {
+  let page: MyappPage;
 
   beforeEach(() => {
-    page = new EnvironmentDashboardModule4Page();
+    page = new MyappPage();
   });
 
   it('should display message saying app works', () => {
