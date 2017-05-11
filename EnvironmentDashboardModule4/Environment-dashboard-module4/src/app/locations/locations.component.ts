@@ -4,7 +4,7 @@ import {LocationsService} from '../locations.service';
 @Component({
   selector: 'app-locations',
   templateUrl: './locations.component.html',
-  styleUrls: ['./locations.component.css']
+  styleUrls: ['./locations.component.css'],
 })
 export class LocationsComponent implements OnInit {
   newUser;

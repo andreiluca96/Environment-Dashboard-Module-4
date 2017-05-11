@@ -1,0 +1,30 @@
+<script src="node_modules/angular2/bundles/http.dev.js"></script>
+<h3> Users </h3>
+
+<ul>
+    <li *ngFor="let user of users">
+      <ol>
+        <li>
+          {{user.userName}}
+        </li>
+        <li>
+          {{user.firstName}}
+        </li>
+        <li>
+          {{user.lastName}}
+        </li>
+        <li>
+          {{user.password}}
+        </li>
+        <li>
+          {{user.id}}
+        </li>
+        <li>
+          {{user.email}}
+        </li>
+        <li>
+          {{user.phoneNumber}}
+        </li>
+      </ol>
+    </li>
+</ul>
