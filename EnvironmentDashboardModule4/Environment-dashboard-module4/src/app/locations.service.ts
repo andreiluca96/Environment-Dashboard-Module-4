@@ -1,5 +1,5 @@
-  import { Injectable } from '@angular/core';
-  import {Init} from './init-locations';
+import { Injectable } from '@angular/core';
+import {Init} from './init-locations';
 
 @Injectable()
 export class LocationsService extends Init {

@@ -1,28 +1,64 @@
 <script src="node_modules/angular2/bundles/http.dev.js"></script>
 <h3> Users </h3>
 
-<ul>
-    <li *ngFor="let user of users">
-      <ol>
-        <li>
+  <label>
+    Username
+    <input type="text" [(ngModel)]="username">
+  </label>
+  <br>
+  <label>
+    First name
+    <input type="text" [(ngModel)]="firstname">
+  </label>
+  <br>
+  <label>
+    Last name
+    <input type="text" [(ngModel)]="lastname">
+  </label>
+  <br>
+  <label>
+    Password
+    <input type="text" [(ngModel)]="password">
+  </label>
+  <br>
+  <label>
+    Email
+    <input type="text" [(ngModel)]="email">
+  </label>
+  <br>
+  <label>
+    Phone number
+    <input type="text" [(ngModel)]="phonenumber">
+  </label>
+  <br>
+  <input (click)="addUser()" type="submit" value="Insert">
+
+<p>
+  {{username}}
+</p>
+
+<ul class="list-group">
+    <li *ngFor="let user of users"> <h2>{{user.userName}}</h2>
+      <ol class="list-group">
+        <li class="list-group-item justify-content-between">
           Username : <b>{{user.userName}}</b>
         </li>
-        <li>
+        <li class="list-group-item justify-content-between">
           First name : <b>{{user.firstName}}</b>
         </li>
-        <li>
+        <li class="list-group-item justify-content-between">
           Last name : <b>{{user.lastName}}</b>
         </li>
-        <li>
+        <li class="list-group-item justify-content-between">
           Password : <b>{{user.password}}</b>
         </li>
-        <li>
+        <li class="list-group-item justify-content-between">
           id : <b>{{user.id}}</b>
         </li>
-        <li>
+        <li class="list-group-item justify-content-between">
           Email : <b>{{user.email}}</b>
         </li>
-        <li>
+        <li class="list-group-item justify-content-between">
           Phonenumber : <b>{{user.phoneNumber}}</b>
         </li>
       </ol>
