@@ -1,6 +1,6 @@
 <script src="node_modules/angular2/bundles/http.dev.js"></script>
 <h3> Users </h3>
-
+  <h3> Insert </h3>
   <label>
     Username
     <input type="text" [(ngModel)]="username">
@@ -32,10 +32,51 @@
   </label>
   <br>
   <input (click)="addUser()" type="submit" value="Insert">
+  <br><br>
+  <h3> Delete: </h3>
+  <label>
+    Id:
+    <input type="text" [(ngModel)]="id">
+  </label>
+  <input (click)="deleteUser()" type="submit" value="Delete">
 
-<p>
-  {{username}}
-</p>
+  <h3> Update: </h3>
+  <label>
+    Id:
+    <input type="text" [(ngModel)]="id">
+  </label>
+  <br>
+  <label>
+    Username
+    <input type="text" [(ngModel)]="username">
+  </label>
+  <br>
+  <label>
+    First name
+    <input type="text" [(ngModel)]="firstname">
+  </label>
+  <br>
+  <label>
+    Last name
+    <input type="text" [(ngModel)]="lastname">
+  </label>
+  <br>
+  <label>
+    Password
+    <input type="text" [(ngModel)]="password">
+  </label>
+  <br>
+  <label>
+    Email
+    <input type="text" [(ngModel)]="email">
+  </label>
+  <br>
+  <label>
+    Phone number
+    <input type="text" [(ngModel)]="phonenumber">
+  </label>
+  <br>
+  <input (click)="updateUser()" type="submit" value="Update">
 
 <ul class="list-group">
     <li *ngFor="let user of users"> <h2>{{user.userName}}</h2>

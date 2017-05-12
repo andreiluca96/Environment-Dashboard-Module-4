@@ -8,26 +8,53 @@ import {Users} from './users/users';
 @Injectable()
 export class UsersService {
   private users;
-  private url = 'http://localhost:8100/v1/users';
+  private url = 'http://localhost:8100/v1/users/';
   constructor(private __http: Http) { }
+  private headers = new Headers({'Content-Type': 'application/json'});
 
    getUsers() : Observable<Users[]> {
      return this.__http.get(this.url).map(res => res.json());
    }
 
    addUsers(user: Users) {
-      const myHeaders = new Headers({'Content-Type': 'application/json'});
       console.log(JSON.stringify(user));
       this.__http
-      .post(this.url, JSON.stringify(user), {headers: myHeaders})
+      .post(this.url, JSON.stringify(user), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data as Users)
       .catch(this.handleError);
+   }
+
+   deleteUser(id: string) {
+     let deleteURL = this.url + id;
+     console.log(deleteURL);
+     this.__http
+     .delete(deleteURL, {headers : this.headers})
+     .toPromise()
+     .then(() => null)
+     .catch(this.handleError);
+   }
+
+   updateUser(user: Users) {
+     let updateURL = this.url + user.id;
+     console.log(updateURL);
+     user.id = null;
+     this.__http
+     .put(updateURL, JSON.stringify(user), {headers: this.headers})
+     .toPromise()
+     .then(() => event)
+     .catch(this.handleError);
+   }
+
+   getUserById(id: string) : Observable<Users> {
+     let getUserURL = this.url + id;
+     console.log(getUserURL);
+     return this.__http.get(getUserURL).map(res => res.json());
+
    }
 
    private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
-
 }
