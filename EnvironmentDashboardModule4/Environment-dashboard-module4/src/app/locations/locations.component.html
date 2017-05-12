@@ -3,16 +3,43 @@
 
 
 <h2>Add Locations</h2>
+  <h3> Add location: </h3>
+    UserID:<input type="text" [(ngModel)]="userId">
+    Latitude:<input type="text" [(ngModel)]="latitude">
+    Longitude:<input type="text" [(ngModel)]="longitude">
+    Alias:<input type="text" [(ngModel)]="alias">
+    <input type="submit" value="Add" (click)="addLocation()">
+  <br>
+  <h3> Get locations: </h3>
+    UserID: <input type="text" [(ngModel)]="getUserId">
+    <input type="submit" value="Get" (click)="getLocations()">
+    <ul class="list-group">
+    <li *ngFor="let location of locations">
+      <ol class="list-group">
+        <li class="list-group-item justify-content-between">
+          Id : <b>{{location.id}}</b>
+        </li>
+        <li class="list-group-item justify-content-between">
+          User Id : <b>{{location.userId}}</b>
+        </li>
+        <li class="list-group-item justify-content-between">
+          Latitude : <b>{{location.latitude}}</b>
+        </li>
+        <li class="list-group-item justify-content-between">
+          Longitude : <b>{{location.longitude}}</b>
+        </li>
+        <li class="list-group-item justify-content-between">
+          Alias : <b>{{location.alias}}</b>
+        </li>
+      </ol>
+    </li>
+</ul>
+  <h3> Delete locations: </h3>
+    UserID: <input type="text" [(ngModel)]="deleteUserId">
+    <input type="submit" value="Delete" (click)="deleteLocations()">
 
-<form submit="addLocation()">
-    UserName:<input type="text" [(ngModel)]="newUser">
-    Location:<input type="text" [(ngModel)]="newLocation">
-    <input type="submit" value="Add">
-</form>
 
-
-
-<table>
+<!--<table>
   <tr>
     <th>Username</th>
     <th>Location</th>
@@ -50,10 +77,7 @@
     <button (click)="deleteLocation(users.text)">X</button>
   </th>
 </tr>
-
-
-
-</table>
+</table>-->
 
 </body>
 </html>

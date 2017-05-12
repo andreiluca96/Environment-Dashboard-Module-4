@@ -9,9 +9,10 @@ import {Users} from './users/users';
 export class UsersService {
   private users;
   private url = 'http://localhost:8100/v1/users/';
-  constructor(private __http: Http) { }
   private headers = new Headers({'Content-Type': 'application/json'});
 
+  constructor(private __http: Http) { }
+  
    getUsers() : Observable<Users[]> {
      return this.__http.get(this.url).map(res => res.json());
    }

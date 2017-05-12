@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LocationsService} from '../locations.service';
+import { Locations } from './locations';
 
 @Component({
   selector: 'app-locations',
@@ -7,33 +8,41 @@ import {LocationsService} from '../locations.service';
   styleUrls: ['./locations.component.css'],
 })
 export class LocationsComponent implements OnInit {
-  newUser;
-  newLocation;
-  users;
-  locations;
-  constructor(private _locationsService: LocationsService) { }
+  userId: string;
+  latitude: number;
+  longitude: number;
+  alias: string;
+  getUserId: string;
+  deleteUserId: string;
+  newLocation: Locations;
+  locations: Locations[];
+
+  constructor(private __locationSerive : LocationsService) { }
 
   ngOnInit() {
-      this.users = this._locationsService.getUsers();
-    this.locations = this._locationsService.getLocations();
+    this.newLocation = new Locations();
+    this.locations = [];
   }
 
-  addLocation(){
-    this.users.push({
-      text: this.newUser
-    });
-    this.locations.push({
-      text: this.newLocation
-    });
+  addLocation() {
+    console.log('Adding location...');
+    this.newLocation.latitude = this.latitude;
+    this.newLocation.alias = this.alias;
+    this.newLocation.longitude = this.longitude;
+
+    console.log(this.newLocation);
+
+    this.__locationSerive.addLocation(this.userId, this.newLocation);
   }
 
-  deleteLocation(userText){
-    for(var i=0; i< this.users.length; i++)
-      if(this.users[i].text == userText){
-        this.users.splice(i,1);
-        this.locations.splice(i,1);
-      }
+  deleteLocations() {
+    console.log('Deleting locations...');
+    this.__locationSerive.deleteLocations(this.deleteUserId);
+  }
 
-}
+  getLocations() {
+    console.log('Getting locations...');
+    this.__locationSerive.getLocations(this.getUserId).subscribe( gettedLocations => this.locations = gettedLocations);
+  }
 
 }
