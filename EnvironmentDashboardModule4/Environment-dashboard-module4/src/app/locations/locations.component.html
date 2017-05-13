@@ -3,16 +3,16 @@
 
 
 <h2>Add Locations</h2>
-  <h3> Add location:  </h3>
-    UserID:<input type="text" [(ngModel)]="userId" >
-    Latitude:<input type="text" [(ngModel)]="latitude">
-    Longitude:<input type="text" [(ngModel)]="longitude">
-    Alias:<input type="text" [(ngModel)]="alias">
-    <input type="submit" value="Add" (click)="addLocation()">
+  <font color="#aeeaae" ><h3> &nbsp; Add location:  </h3> </font>
+    <font color="#aeeaae" > UserID:<input type="text" [(ngModel)]="userId" > </font>
+    <font color="#aeeaae" >  Latitude:<input type="text" [(ngModel)]="latitude"> </font>
+    <font color="#aeeaae" >Longitude:<input type="text" [(ngModel)]="longitude"> </font>
+    <font color="#aeeaae" >Alias:<input type="text" [(ngModel)]="alias"> </font>
+    <input type="submit" value="Add" (click)="addLocation()" style="background-color:#aeeaae;color:black">
   <br>
-  <h3> Get locations: </h3>
-    UserID: <input type="text" [(ngModel)]="getUserId">
-    <input type="submit" value="Get" (click)="getLocations()">
+<font color="#aeeaae" >   <h3> &nbsp; Get locations: </h3> </font>
+  <font color="#aeeaae" >  UserID: <input type="text" [(ngModel)]="getUserId"> </font>
+    <input type="submit" value="Get" (click)="getLocations()" style="background-color:#aeeaae;color:black">
     <ul class="list-group">
     <li *ngFor="let location of locations">
       <ol class="list-group">
@@ -34,9 +34,9 @@
       </ol>
     </li>
 </ul>
-  <h3> Delete locations: </h3>
-    UserID: <input type="text" [(ngModel)]="deleteUserId">
-    <input type="submit" value="Delete" (click)="deleteLocations()">
+  <font color="#aeeaae" >  <h3> &nbsp; Delete locations: </h3> </font>
+  <font color="#aeeaae" >    UserID: <input type="text" [(ngModel)]="deleteUserId"> </font>
+    <input type="submit" value="Delete" (click)="deleteLocations()" style="background-color:#aeeaae;color:black">
 
 
 <!--<table>

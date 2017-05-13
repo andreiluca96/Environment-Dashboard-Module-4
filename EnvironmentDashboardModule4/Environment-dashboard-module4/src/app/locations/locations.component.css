@@ -6,11 +6,25 @@ table {
   width: 60%;
 }
 
-input[type="submit"]{
-  color: green;
-  background-color: white;
+input[type=submit] {
+    padding:5px 15px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
 }
 
+input[type=text] {
+    padding:5px;
+    border:2px solid #ccc;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=text]:focus {
+    border-color:#333;
+}
 button{
   color: red;
   background-color: white;
