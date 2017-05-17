@@ -1,107 +1,35 @@
-<script src="node_modules/angular2/bundles/http.dev.js"></script>
-<h3> Users </h3>
-  <h3> Insert </h3>
-  <label>
-    Username
-    <input type="text" [(ngModel)]="username">
-  </label>
-  <br>
-  <label>
-    First name
-    <input type="text" [(ngModel)]="firstname">
-  </label>
-  <br>
-  <label>
-    Last name
-    <input type="text" [(ngModel)]="lastname">
-  </label>
-  <br>
-  <label>
-    Password
-    <input type="text" [(ngModel)]="password">
-  </label>
-  <br>
-  <label>
-    Email
-    <input type="text" [(ngModel)]="email">
-  </label>
-  <br>
-  <label>
-    Phone number
-    <input type="text" [(ngModel)]="phonenumber">
-  </label>
-  <br>
-  <input (click)="addUser()" type="submit" value="Insert">
-  <br><br>
-  <h3> Delete: </h3>
-  <label>
-    Id:
-    <input type="text" [(ngModel)]="id">
-  </label>
-  <input (click)="deleteUser()" type="submit" value="Delete">
-
-  <h3> Update: </h3>
-  <label>
-    Id:
-    <input type="text" [(ngModel)]="id">
-  </label>
-  <br>
-  <label>
-    Username
-    <input type="text" [(ngModel)]="username">
-  </label>
-  <br>
-  <label>
-    First name
-    <input type="text" [(ngModel)]="firstname">
-  </label>
-  <br>
-  <label>
-    Last name
-    <input type="text" [(ngModel)]="lastname">
-  </label>
-  <br>
-  <label>
-    Password
-    <input type="text" [(ngModel)]="password">
-  </label>
-  <br>
-  <label>
-    Email
-    <input type="text" [(ngModel)]="email">
-  </label>
-  <br>
-  <label>
-    Phone number
-    <input type="text" [(ngModel)]="phonenumber">
-  </label>
-  <br>
-  <input (click)="updateUser()" type="submit" value="Update">
-
-<ul class="list-group">
-    <li *ngFor="let user of users"> <h2>{{user.userName}}</h2>
-      <ol class="list-group">
-        <li class="list-group-item justify-content-between">
-          Username : <b>{{user.userName}}</b>
-        </li>
-        <li class="list-group-item justify-content-between">
-          First name : <b>{{user.firstName}}</b>
-        </li>
-        <li class="list-group-item justify-content-between">
-          Last name : <b>{{user.lastName}}</b>
-        </li>
-        <li class="list-group-item justify-content-between">
-          Password : <b>{{user.password}}</b>
-        </li>
-        <li class="list-group-item justify-content-between">
-          id : <b>{{user.id}}</b>
-        </li>
-        <li class="list-group-item justify-content-between">
-          Email : <b>{{user.email}}</b>
-        </li>
-        <li class="list-group-item justify-content-between">
-          Phonenumber : <b>{{user.phoneNumber}}</b>
-        </li>
-      </ol>
-    </li>
+<ul class="users">
+  <button id="addUserButton">Add User</button>
+  <li *ngFor="let user of this.users" [class.selected]="user === selectedUser">
+    <span class="badge">{{user.id}}</span>
+    <p class="names">{{user.firstName}}</p>
+    <button class="editButton" (click)="editClicked(user)"><img src="https://cdn3.iconfinder.com/data/icons/edition/100/pen_paper_2-512.png" style="height:20px;width:20px;"></button>
+    <button class="deleteButton" (click)="deleteClicked(user)"><img src="https://image.flaticon.com/icons/png/128/61/61391.png" style="height:20px;width:20px;"></button>
+  </li>
 </ul>
+
+<div class="editUser" *ngIf="selectedUser">
+  <h5>Account edit: {{selectedUser.firstName}} </h5>
+  <div class="editLabel"><label>Id: </label>{{selectedUser.id}}</div>
+  <div class="editLabel">
+    <label>First Name: </label>
+    <input type="text" #firstNameInput [ngModel]="selectedUser.firstName" placeholder="selectedUser.firstName" placeholder=""/>
+    <br/>
+    <label>Last Name: </label>
+    <input type="text" #lastNameInput [ngModel]="selectedUser.lastName" placeholder="selectedUser.lastName" placeholder=""/>
+    <br/>
+    <label>Password: </label>
+    <input type="text" #passwordInput [ngModel]="selectedUser.password" placeholder="selectedUser.password" placeholder=""/>
+    <br/>
+    <label>E-mail: </label>
+    <input type="email" #emailInput [ngModel]="selectedUser.email" placeholder="selectedUser.email" placeholder=""/>
+    <br/>
+    <label>Phone number: </label>
+    <input type="text" #PhoneNumberInput [ngModel]="selectedUser.phoneNumber" placeholder="selectedUser.phoneNumber" placeholder=""/>
+ </div>
+
+ <div class="options">
+   <button class="optionButton" (click)="saveClicked(selectedUser,firstNameInput.value)">Save</button>
+   <button class="optionButton" (click)="cancelClicked()">Cancel</button>
+ </div>
+</div>

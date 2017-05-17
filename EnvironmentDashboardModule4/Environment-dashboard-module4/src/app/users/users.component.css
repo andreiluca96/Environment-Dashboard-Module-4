@@ -1,0 +1,112 @@
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+.users {
+  margin: auto;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+  position: relative;
+  top: -3px;
+}
+.users .names{
+  color:#00bc8c;
+  margin: 1em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+  position: relative;
+  left: 1.5em;
+  top:-3.1em;
+  cursor: pointer;
+}
+.users li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: 1em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+  color:#607D8B;
+}
+.users li.selected:hover {
+  background-color: #BBD8DC !important;
+  color: white;
+}
+.users li:hover {
+  color: #607D;
+  background-color: #DDD;
+  left: .1em;
+}
+.users .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #00bc8c;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -0.35em;
+  height: 1.85em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+.editUser{
+  position: relative;
+  left:40px;
+  color: #607D8B;
+  width: 20em;
+  margin: auto;
+  list-style-type: none;
+  padding: 0;
+}
+.editLabel{
+  font-size: .8em;
+}
+
+.editLabel .text{
+  font-size: .8em;
+}
+
+.options{
+  position: relative;
+  margin: 10px auto;
+  width:15em;
+}
+.editButton{
+position: absolute;
+top:0px;
+right: -2px;
+background-color: Transparent;
+background-repeat:no-repeat;
+border: none;
+cursor:pointer;
+overflow: hidden;
+outline:none;
+}
+
+.deleteButton{
+position: absolute;
+top:0px;
+right: 25px;
+background-color: Transparent;
+background-repeat:no-repeat;
+border: none;
+cursor:pointer;
+overflow: hidden;
+outline:none;
+}
+
+.optionButton{
+  margin:0px 5px;
+}
+
+#addUserButton{
+    background-color:#00bc8c;
+    margin: 3em auto 1em 5em;
+}

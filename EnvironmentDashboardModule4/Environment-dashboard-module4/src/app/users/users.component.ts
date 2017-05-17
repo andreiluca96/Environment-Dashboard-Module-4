@@ -11,6 +11,7 @@ import {UsersService} from '../users.service';
 })
 
 export class UsersComponent implements OnInit {
+  private selectedUser:Users;
   private users: Users[];
   newUser: Users;
   text;
@@ -22,12 +23,15 @@ export class UsersComponent implements OnInit {
   email;
   phonenumber;
 
-  constructor(private __usersService: UsersService) { 
+  constructor(private __usersService: UsersService) {
     this.newUser = new Users();
-    this.__usersService.getUsers().subscribe(users => {
+    /*this.__usersService.getUsers().subscribe(users => {
       this.users = users;
-    });
+    });*/
+    this.users=this.__usersService.getUsers();
+    console.log("asd");
 
+/*
     this.__usersService.getUserById('59156d656cea4a46349c8401').subscribe( user => {
       this.newUser.id = user.id;
       this.newUser.userName = user.userName;
@@ -37,7 +41,7 @@ export class UsersComponent implements OnInit {
       this.newUser.email = user.email;
       this.newUser.phoneNumber = user.phoneNumber;
       console.log(this.newUser);
-   } );
+   } );*/
 
   }
 
@@ -52,23 +56,30 @@ export class UsersComponent implements OnInit {
     this.newUser.email = this.email;
     this.newUser.password = this.password;
     this.newUser.phoneNumber = this.phonenumber;
-    this.__usersService.addUsers(this.newUser);
 
-    this.__usersService.getUsers().subscribe(users => {
+
+
+
+
+    //adaugare a unui nou utilizator prin servicii
+    this.__usersService.addUsers(this.newUser);
+    /*this.__usersService.getUsers().subscribe(users => {
       this.users = users;
-    });
+    });*/
   }
 
   deleteUser() {
     console.log('Deleting user...');
     this.__usersService.deleteUser(this.id);
 
-    this.__usersService.getUsers().subscribe(users => {
+    /*this.__usersService.getUsers().subscribe(users => {
       this.users = users;
-    });
+    });*/
+
+
   }
 
-  updateUser() {
+  /*updateUser() {
     console.log('Updating user...');
     this.newUser.id = this.id;
     this.newUser.userName = this.username;
@@ -79,10 +90,38 @@ export class UsersComponent implements OnInit {
     this.newUser.phoneNumber = this.phonenumber;
 
     this.__usersService.updateUser(this.newUser);
-  }
+  }*/
+
 
   getUserById() {
     console.log('Getting user by id...');
+  }
+
+
+
+  editClicked(user:Users){
+    this.selectedUser=user;
+  }
+
+  deleteClicked(user:Users){
+    if(user==this.selectedUser) this.selectedUser=null;
+    //this.users.splice(this.users.indexOf(user),1);
+
+    this.__usersService.deleteUser(user.id);
+    // de decomentat
+    /*this.__usersService.getUsers().subscribe(users => {
+      this.users = users;
+    });*/
+  }
+
+  cancelClicked(){
+    this.selectedUser=null;
+  }
+
+  saveClicked(user:Users,value){
+    user.firstName=value;
+    this.selectedUser=null;
+    this.__usersService.updateUser(user);
   }
 
 }
