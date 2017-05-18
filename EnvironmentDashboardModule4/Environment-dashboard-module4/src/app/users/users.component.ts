@@ -11,9 +11,10 @@ import {UsersService} from '../users.service';
 })
 
 export class UsersComponent implements OnInit {
+  private createEnable=false;
   private selectedUser:Users;
   private users: Users[];
-  newUser: Users;
+  private newUser: Users;
   text;
   username: string;
   firstname;
@@ -24,77 +25,29 @@ export class UsersComponent implements OnInit {
   phonenumber;
 
   constructor(private __usersService: UsersService) {
-    this.newUser = new Users();
     /*this.__usersService.getUsers().subscribe(users => {
       this.users = users;
     });*/
     this.users=this.__usersService.getUsers();
-    console.log("asd");
-
-/*
-    this.__usersService.getUserById('59156d656cea4a46349c8401').subscribe( user => {
-      this.newUser.id = user.id;
-      this.newUser.userName = user.userName;
-      this.newUser.firstName = user.firstName;
-      this.newUser.lastName = user.lastName;
-      this.newUser.password = user.password;
-      this.newUser.email = user.email;
-      this.newUser.phoneNumber = user.phoneNumber;
-      console.log(this.newUser);
-   } );*/
 
   }
 
   ngOnInit() {
   }
 
-  addUser() {
-    console.log('Adding user...');
-    this.newUser.userName = this.username;
+  addUser(userNameInputValue,firstNameInputValue,lastNameInputValue,passwordInputValue,emailInputValue,PhoneNumberInputValue) {
+    this.newUser=new Users;
+
+    this.newUser.userName =userNameInputValue;
     this.newUser.firstName = this.firstname;
     this.newUser.lastName = this.lastname;
     this.newUser.email = this.email;
     this.newUser.password = this.password;
     this.newUser.phoneNumber = this.phonenumber;
-
-
-
-
-
-    //adaugare a unui nou utilizator prin servicii
     this.__usersService.addUsers(this.newUser);
     /*this.__usersService.getUsers().subscribe(users => {
       this.users = users;
     });*/
-  }
-
-  deleteUser() {
-    console.log('Deleting user...');
-    this.__usersService.deleteUser(this.id);
-
-    /*this.__usersService.getUsers().subscribe(users => {
-      this.users = users;
-    });*/
-
-
-  }
-
-  /*updateUser() {
-    console.log('Updating user...');
-    this.newUser.id = this.id;
-    this.newUser.userName = this.username;
-    this.newUser.firstName = this.firstname;
-    this.newUser.lastName = this.lastname;
-    this.newUser.email = this.email;
-    this.newUser.password = this.password;
-    this.newUser.phoneNumber = this.phonenumber;
-
-    this.__usersService.updateUser(this.newUser);
-  }*/
-
-
-  getUserById() {
-    console.log('Getting user by id...');
   }
 
 
@@ -105,10 +58,7 @@ export class UsersComponent implements OnInit {
 
   deleteClicked(user:Users){
     if(user==this.selectedUser) this.selectedUser=null;
-    //this.users.splice(this.users.indexOf(user),1);
-
     this.__usersService.deleteUser(user.id);
-    // de decomentat
     /*this.__usersService.getUsers().subscribe(users => {
       this.users = users;
     });*/
@@ -118,10 +68,26 @@ export class UsersComponent implements OnInit {
     this.selectedUser=null;
   }
 
-  saveClicked(user:Users,value){
-    user.firstName=value;
+  saveClicked(user:Users,userNameInputValue,firstNameInputValue,lastNameInputValue,passwordInputValue,emailInputValue,PhoneNumberInputValue){
+    user.userName=userNameInputValue;
+    user.firstName=firstNameInputValue;
+    user.lastName=lastNameInputValue;
+    user.password=passwordInputValue;
+    user.email=emailInputValue;
+    user.phoneNumber=PhoneNumberInputValue;
     this.selectedUser=null;
     this.__usersService.updateUser(user);
+    /*this.__usersService.getUsers().subscribe(users => {
+      this.users = users;
+    });*/
+  }
+
+  addUserClicked(){
+    this.createEnable=true;
+  }
+
+  cancelAddClicked(){
+    this.createEnable=false;
   }
 
 }

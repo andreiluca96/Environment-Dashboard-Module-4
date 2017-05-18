@@ -24,11 +24,12 @@
 .users li {
   cursor: pointer;
   position: relative;
-  left: 0;
+  left: -6em;
   background-color: #EEE;
   margin: 1em;
   padding: .3em 0;
   height: 1.6em;
+  width: 25em;
   border-radius: 4px;
   color:#607D8B;
 }
@@ -39,7 +40,7 @@
 .users li:hover {
   color: #607D;
   background-color: #DDD;
-  left: .1em;
+  left: -6em;
 }
 .users .badge {
   display: inline-block;
@@ -57,13 +58,15 @@
 }
 
 .editUser{
+  border: 2px solid #00bc8c;
+  border-radius: 5px;
   position: relative;
-  left:40px;
-  color: #607D8B;
+  color: #00bc8c;
   width: 20em;
-  margin: auto;
   list-style-type: none;
-  padding: 0;
+  padding-left: 2em;
+  margin-left: 26em;
+  margin-right: 30em;
 }
 .editLabel{
   font-size: .8em;
@@ -108,5 +111,19 @@ outline:none;
 
 #addUserButton{
     background-color:#00bc8c;
-    margin: 3em auto 1em 5em;
+    margin: 1em 10em 1em 35em;
+}
+
+.createUser{
+  border: 2px solid #00bc8c;
+  border-radius: 5px;
+  margin-left: 26em;
+  margin-right: 30em;
+  color: #00bc8c;
+  padding-left: 2em;
+  padding-bottom: 1em;
+}
+
+.optionsCreate{
+  margin-left: 2em;
 }
