@@ -65,8 +65,8 @@
   width: 20em;
   list-style-type: none;
   padding-left: 2em;
-  margin-left: 26em;
-  margin-right: 30em;
+  margin-left: 40%;
+  margin-right: 40%;
 }
 .editLabel{
   font-size: .8em;
@@ -111,14 +111,15 @@ outline:none;
 
 #addUserButton{
     background-color:#00bc8c;
-    margin: 1em 10em 1em 35em;
+    margin: 1em 50% 1em 50%;
 }
 
 .createUser{
   border: 2px solid #00bc8c;
   border-radius: 5px;
-  margin-left: 26em;
-  margin-right: 30em;
+    width: 20em;
+  margin-left: 40%;
+  margin-right: 40%;
   color: #00bc8c;
   padding-left: 2em;
   padding-bottom: 1em;

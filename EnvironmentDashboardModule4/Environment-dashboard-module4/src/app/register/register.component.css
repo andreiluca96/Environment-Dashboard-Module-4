@@ -1,0 +1,71 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+		legend {
+			color: rgb(130,180,230);
+			font-family: "Times New Roman", Times, serif;
+			font-size: 200%;
+			text-align: center;
+			text-shadow: 2px 2px rgb(0,0,0);
+
+
+		}
+
+
+		fieldset {
+			border:3px solid black;
+			padding-right: 150px;
+			padding-bottom: 50px;
+			padding-left: 150px;
+			padding-top: 50px;
+			height: 50%;
+			background-color: rgba(173,216,230,0.8);
+			box-shadow: 8px 8px 5px rgb(120,120,120);
+
+		}
+
+		#formId {
+			text-align: center;
+			font-family: "Times New Roman", Times, serif;
+			font-size: .8em;
+      width: 20em;
+      color: #00bc8c;
+      padding-left: 12em;
+		}
+
+		.campuri{
+			padding-right: 10px;
+			padding-left: 10px;
+		}
+
+		#div2 {
+      border: 2px solid #00bc8c;
+			position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      width: 30em;
+      height: 25em;
+		}
+
+
+	.button {
+	cursor: pointer;
+	background-color: #00bc8c;
+	padding: 5px 10px;
+	border: 2px solid rgb(130,180,230);
+	border-radius: 4px;
+	transition-duration: 0.4s;
+	width: 5em;
+  font-family: "Times New Roman", Times, serif;
+  font-size: .8em;
+  color: white;
+}
+
+.button:hover {
+	background-color: rgb(20,80,200);
+}
