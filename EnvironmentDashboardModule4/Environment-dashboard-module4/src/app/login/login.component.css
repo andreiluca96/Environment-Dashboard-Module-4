@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 img.avatar {
     width: 40%;
@@ -16,9 +17,10 @@ span.psw {
 
 .login-page {
   width: 360px;
-  padding: 8% 0 0;
+  padding: 0;
   margin: auto;
 }
+
 .form {
   position: relative;
   z-index: 1;
@@ -44,7 +46,7 @@ span.psw {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #6D6D98;
+  background: #00cc99;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -55,7 +57,7 @@ span.psw {
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #141473;
+  background: #00bc8c;
 }
 .form .message {
   margin: 15px 0 0;
@@ -63,6 +65,6 @@ span.psw {
   font-size: 12px;
 }
 .form .message a {
-  color: #141473;
+  color: #00bc8c;
   text-decoration: none;
 }

@@ -13,12 +13,10 @@ export class UsersService {
 
   constructor(private __http: Http) { }
 
-   /*getUsers() : Observable<Users[]> {
-     //return this.__http.get(this.url).map(res => res.json());
-
-     return this.
-   }*/
-
+   getUsers() : Observable<Users[]> {
+     return this.__http.get(this.url).map(res => res.json());
+   }
+/*
    getUsers(){
 
           let auxUser:Users={id:'1',userName: 'radu.luca',password: 'pass',lastName: 'radu',firstName: 'luca',email: 'radu.luca@yahoo.com',phoneNumber: '074253535'};
@@ -26,7 +24,7 @@ export class UsersService {
           this.users.push(auxUser);
           this.users.push(auxUser2);
           return this.users;
-   }
+   }*/
 
    addUsers(user: Users) {
       console.log(JSON.stringify(user));
