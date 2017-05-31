@@ -5,6 +5,22 @@ table {
   top:30%;
   width: 60%;
 }
+form {
+margin: 0 auto;
+width:440px;
+}
+.form-control {
+
+
+     width: 380px;
+     border: 2px solid black;
+}
+
+.center_div{
+    margin: 0 auto;
+    width:30% ;
+
+}
 
 input[type=submit] {
     padding:5px 15px;

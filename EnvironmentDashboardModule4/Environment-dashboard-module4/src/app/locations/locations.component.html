@@ -2,41 +2,64 @@
 <body>
 
 
-<h2>Add Locations</h2>
-  <font color="#aeeaae" ><h3> &nbsp; Add location:  </h3> </font>
-    <font color="#aeeaae" > UserID:<input type="text" [(ngModel)]="userId" > </font>
-    <font color="#aeeaae" >  Latitude:<input type="text" [(ngModel)]="latitude"> </font>
-    <font color="#aeeaae" >Longitude:<input type="text" [(ngModel)]="longitude"> </font>
-    <font color="#aeeaae" >Alias:<input type="text" [(ngModel)]="alias"> </font>
-    <input type="submit" value="Add" (click)="addLocation()" style="background-color:#aeeaae;color:black">
-  <br>
-<font color="#aeeaae" >   <h3> &nbsp; Get locations: </h3> </font>
-  <font color="#aeeaae" >  UserID: <input type="text" [(ngModel)]="getUserId"> </font>
-    <input type="submit" value="Get" (click)="getLocations()" style="background-color:#aeeaae;color:black">
-    <ul class="list-group">
-    <li *ngFor="let location of locations">
-      <ol class="list-group">
-        <li class="list-group-item justify-content-between">
-          Id : <b>{{location.id}}</b>
-        </li>
-        <li class="list-group-item justify-content-between">
-          User Id : <b>{{location.userId}}</b>
-        </li>
-        <li class="list-group-item justify-content-between">
-          Latitude : <b>{{location.latitude}}</b>
-        </li>
-        <li class="list-group-item justify-content-between">
-          Longitude : <b>{{location.longitude}}</b>
-        </li>
-        <li class="list-group-item justify-content-between">
-          Alias : <b>{{location.alias}}</b>
-        </li>
-      </ol>
-    </li>
-</ul>
-  <font color="#aeeaae" >  <h3> &nbsp; Delete locations: </h3> </font>
-  <font color="#aeeaae" >    UserID: <input type="text" [(ngModel)]="deleteUserId"> </font>
-    <input type="submit" value="Delete" (click)="deleteLocations()" style="background-color:#aeeaae;color:black">
+
+<div class="container ">
+  <form id="signin" class="form-group row" role="form">
+
+        <h1> Add Locations </h1>
+                    <div class="input-group input-group-lg ">
+
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="id" type="id" class="form-control " name="id" value="" placeholder="User ID">
+
+                    </div>
+
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+                        <input id="alias" type="alias" class="form-control" name="alias" value="" placeholder="Alias">
+                    </div>
+
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                        <input id="latitude" type="latitude" class="form-control" name="latitude" value="" placeholder="Latitude">
+                    </div>
+
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                        <input id="longitude" type="longitude" class="form-control" name="longitude" value="" placeholder="Longitude">
+                    </div>
+                      <div style="text-align:center;">
+                    <button type="submit" class="btn btn-primary btn-lg" style="background-color:#aeeaae;color:black"> Add Location</button>
+                  </div>
+               </form>
+
+</div>
+
+
+<div class="container">
+
+  <form id="signin" class="form-group row" role="form">
+        <h1> Get or Delete Locations </h1>
+    <div class="input-group input-group-lg">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input id="id" type="id" class="form-control" name="id" value="" placeholder="User ID">
+    </div>
+
+<div style="text-align:center;">
+    <button type="submit" class="btn btn-primary btn-lg" style="background-color:#aeeaae;color:black">  Get Locations</button>
+</div>
+    <div class="input-group input-group-lg">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input id="id" type="id" class="form-control" name="id" value="" placeholder="User ID">
+    </div>
+<div style="text-align:center;">
+    <button type="submit" class="btn btn-primary btn-lg" style="background-color:#aeeaae;color:black">  Delete UserID</button>
+    </div>
+  </form>
+
+</div>
+
+
 
 
 <!--<table>
