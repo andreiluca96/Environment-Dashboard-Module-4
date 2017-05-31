@@ -25,10 +25,9 @@ export class UsersComponent implements OnInit {
   phonenumber;
 
   constructor(private __usersService: UsersService) {
-    /*this.__usersService.getUsers().subscribe(users => {
+    this.__usersService.getUsers().subscribe(users => {
       this.users = users;
-    });*/
-    this.users=this.__usersService.getUsers();
+    });
 
   }
 
