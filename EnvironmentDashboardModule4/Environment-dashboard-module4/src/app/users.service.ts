@@ -64,13 +64,16 @@ export class UsersService {
      return this.__http.get(getUserURL).map(res => res.json());
    }
 
-   login(loginModel:LoginModel){
+   login(loginModel:LoginModel): Observable<string>{
      let loginURL=this.url+"login";
-     this.__http
-     .post(loginURL, JSON.stringify(loginModel),{headers: this.headers})
-     .toPromise()
-     .then(res => this.userId = res.toString())
-     .catch(this.handleError);
+    //  this.__http
+    //  .post(loginURL, JSON.stringify(loginModel),{headers: this.headers})
+    //  .toPromise()
+    //  .then(res => {this.userId = res.text();return this.userId;})
+    //  .catch(this.handleError);
+    return this.__http
+    .post(loginURL, JSON.stringify(loginModel),{headers: this.headers})
+    .map(res => res.text());
    }
 
    private handleError(error: any): Promise<any> {
