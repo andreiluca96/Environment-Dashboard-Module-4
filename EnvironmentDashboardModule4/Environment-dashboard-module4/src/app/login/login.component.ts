@@ -29,7 +29,12 @@ export class LoginComponent implements OnInit {
   //  this.userId=this.__usersService.login(this.loginModel);
     this.__usersService.login(this.loginModel).subscribe(userId => {
       this.userId = userId;
-      if(userId!=undefined){this.message="Login succes!";setTimeout(10000);this.router.navigateByUrl("locations");}
+      if(userId!=undefined){
+        this.message="Login succes!";
+        setTimeout(10000);
+        window.location.replace("http://localhost:4200/" + this.userId);
+        // window.location.reload();
+      }
     });
 
   }
