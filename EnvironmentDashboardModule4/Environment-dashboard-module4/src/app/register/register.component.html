@@ -1,9 +1,11 @@
+
 <div class="register-page" >
 	<div class="imgcontainer">
 			<img src="https://image.ibb.co/ecs9OF/avatar1.jpg" alt="Avatar" class="avatar"/>
 		</div>
 
 	<div class="form">
+		<p style="color:#00bc8c;">{{this.message}}</p>
 		<form class="register-form"  name="myForm"  role = "form" method="post">
     	<input [(ngModel)]="firstName" type="text" name="firstname" maxlength="15" placeholder="First Name" required>
 			<input [(ngModel)]="lastName" type="text" name="lastname" placeholder="Last Name" required>

@@ -36,7 +36,6 @@ export class UsersComponent implements OnInit {
 
   addUser(userNameInputValue,firstNameInputValue,lastNameInputValue,passwordInputValue,emailInputValue,PhoneNumberInputValue) {
     this.newUser=new Users;
-
     this.newUser.userName =userNameInputValue;
     this.newUser.firstName = this.firstname;
     this.newUser.lastName = this.lastname;

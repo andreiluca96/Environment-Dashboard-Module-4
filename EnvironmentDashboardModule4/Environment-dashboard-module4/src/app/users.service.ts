@@ -4,15 +4,18 @@ import {Observable} from 'rxjs/observable';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import {Users} from './users/users';
+import {LoginModel} from './login/LoginModel';
 
 @Injectable()
 export class UsersService {
   private users:Users[]=[];
+  private loginModel:LoginModel;
+  private userId : string;
   private url = 'http://localhost:8100/v1/users/';
   private headers = new Headers({'Content-Type': 'application/json'});
 
-  constructor(private __http: Http) { }
-  
+  constructor(private __http: Http) { this.loginModel=new LoginModel;}
+
   getUsers() : Observable<Users[]> {
     return this.__http.get(this.url).map(res => res.json());
   }
@@ -59,7 +62,15 @@ export class UsersService {
      let getUserURL = this.url + id;
      console.log(getUserURL);
      return this.__http.get(getUserURL).map(res => res.json());
+   }
 
+   login(loginModel:LoginModel){
+     let loginURL=this.url+"login";
+     this.__http
+     .post(loginURL, JSON.stringify(loginModel),{headers: this.headers})
+     .toPromise()
+     .then(res => this.userId = res.toString())
+     .catch(this.handleError);
    }
 
    private handleError(error: any): Promise<any> {
