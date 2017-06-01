@@ -1,15 +1,12 @@
-<div class="login-page" >
+<div class="login-page">
 	<div class="imgcontainer">
 			<img src="https://image.ibb.co/ecs9OF/avatar1.jpg" alt="Avatar" class="avatar"/>
 	</div>
-
-
-
-  <div class="form"  >
+  <div class="form">
     <form class="login-form"  name="myForm"  role = "form">
-      <input type="text" placeholder="Username" name="fname" required/>
-      <input type="password" name="pass" placeholder="Password" required/>
-      <button>login</button>
+      <input name="username" type="text" placeholder="Username" [(ngModel)]="name" required/>
+      <input name="password" type="password" placeholder="Password" required [(ngModel)]="pass"/>
+      <button (click)="login()">login</button>
     </form>
        <p class="message">Not registered? <a href="/register">Create an account</a></p>
   </div>

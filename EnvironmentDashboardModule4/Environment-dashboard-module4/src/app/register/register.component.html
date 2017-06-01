@@ -5,14 +5,14 @@
 
 	<div class="form">
 		<form class="register-form"  name="myForm"  role = "form" method="post">
-    	<input id="firstName" type="text" name="First Name" maxlength="15" placeholder="First Name" required>
-    	<input id="lastName" type="text" name="Last Name" placeholder="Last Name" required>
-    	<input id="userName" type="text" name="Username" maxlength="20" placeholder="Username" required>
-    	<input id="password" type="password" name="Password" placeholder="Password" required>
-    	<input id="reapeatPassword" type="password" name="Repeat Password" placeholder="Repeat Password" required>
-    	<input id="email" type="email" name="Email" placeholder="Email" required>
-    	<input id="phoneNumber" type="number" name="Phone Number" placeholder="Phone Number" required>
-    	<button type="submit" class="button">Register</button>
+    	<input [(ngModel)]="firstName" type="text" name="firstname" maxlength="15" placeholder="First Name" required>
+			<input [(ngModel)]="lastName" type="text" name="lastname" placeholder="Last Name" required>
+    	<input [(ngModel)]="userName" type="text" name="username" maxlength="20" placeholder="Username" required>
+    	<input [(ngModel)]="password" type="password" name="Password" placeholder="Password" required>
+    	<input [(ngModel)]="reapeatedPassword" type="password" name="repeatedpassword" placeholder="Repeat Password" required>
+    	<input [(ngModel)]="email" type="email" name="Email" placeholder="email" required>
+    	<input [(ngModel)]="phoneNumber" type="number" name="phone_number" placeholder="Phone Number" required>
+    	<button (click)="register()">Register</button>
 		</form>
 	</div>
 </div>

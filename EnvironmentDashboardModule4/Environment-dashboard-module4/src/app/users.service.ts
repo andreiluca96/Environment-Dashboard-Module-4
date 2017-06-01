@@ -12,10 +12,10 @@ export class UsersService {
   private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private __http: Http) { }
-
-   getUsers() : Observable<Users[]> {
-     return this.__http.get(this.url).map(res => res.json());
-   }
+  
+  getUsers() : Observable<Users[]> {
+    return this.__http.get(this.url).map(res => res.json());
+  }
 /*
    getUsers(){
 
@@ -25,7 +25,6 @@ export class UsersService {
           this.users.push(auxUser2);
           return this.users;
    }*/
-
    addUsers(user: Users) {
       console.log(JSON.stringify(user));
       this.__http
