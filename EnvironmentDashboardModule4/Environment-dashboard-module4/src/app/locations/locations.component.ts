@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { LocationsService } from '../locations.service';
 import { Locations } from './locations';
 import { Router } from '@angular/router';
@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./locations.component.css'],
 })
 export class LocationsComponent implements OnInit {
+  @Input() event: Event;
+  @Output() positionChanged = new EventEmitter<any>();
+  position: google.maps.LatLng;
+
   userId: string;
   latitude: number;
   longitude: number;
@@ -17,12 +21,20 @@ export class LocationsComponent implements OnInit {
   deleteUserId: string;
   newLocation: Locations;
   locations: Locations[];
+  alias2: string;
+
+marker = {
+    display: true,
+    lat: null,
+    lng: null,
+  };
 
   constructor(private __locationSerive : LocationsService) { }
 
   ngOnInit() {
     this.newLocation = new Locations();
     this.locations = [];
+    this.getLocations();
   }
 
   addLocation() {
@@ -51,6 +63,28 @@ export class LocationsComponent implements OnInit {
     this.__locationSerive.getLocations(this.getUserId).subscribe( gettedLocations => {
       this.locations = gettedLocations;
     });
+  }
+
+  details(_a,event) {
+    
+  }
+
+  clicked({target: marker}, alias2) {
+    this.marker.lat = marker.getPosition().lat();
+    this.marker.lng = marker.getPosition().lng();
+    this.alias2 = alias2;
+    marker.nguiMapComponent.openInfoWindow('iw', marker);
+  }
+
+  onClick(event) {
+    if (event instanceof MouseEvent)
+        return;
+        console.log(event);
+    this.position = event.latLng;
+    this.latitude = event.latLng.lat();
+    this.longitude = event.latLng.lng();
+    // this.positionChanged.emit(this.position);
+    // event.target.panTo(event.latLng);
   }
 
 }

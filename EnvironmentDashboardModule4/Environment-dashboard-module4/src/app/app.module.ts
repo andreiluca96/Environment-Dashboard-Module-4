@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NguiMapModule} from '@ngui/map';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { LocationsComponent } from './locations/locations.component';
@@ -31,6 +32,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
+     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBnMMHShEh8Vs2LgKovbiisUREiEisfpVo'}),
     BrowserModule,
     FormsModule,
     HttpModule

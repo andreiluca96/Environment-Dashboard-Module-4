@@ -19,7 +19,7 @@
   </form>
 </div>
 
-<div class="container">
+<!--<div class="container">
   <form id="signin" class="form-group row" role="form">
     <h1> Get Locations </h1>
     <div style="text-align:center;">
@@ -33,7 +33,19 @@
         <li class="list-group-item"> Longitude: {{location.longitude}}</li>
       </ul>
   </ul>
-</div>
+</div>-->
+<h2 align="center"> Locations </h2>
+<ngui-map zoom="2" minZoom="2" class="harta" (click)="onClick($event)">
+   <marker (click)="clicked($event, location.alias)" *ngFor="let location of locations" [position]=[location.latitude,location.longitude]></marker>
+   <!--<marker *ngIf="latitude!=null && longitude!=null" [position]=[latitude,longitude]></marker>-->
+      <info-window id="iw" >
+        <h1 style="color:black">
+          {{alias2}}
+        </h1>
+        <!--<button (click)="hideMarkerInfo()">Hide Info</button>-->
+      </info-window>
+   
+</ngui-map>
 <!--<table>
   <tr>
     <th>Username</th>
