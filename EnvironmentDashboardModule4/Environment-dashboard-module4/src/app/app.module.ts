@@ -15,7 +15,7 @@ const appRoutes: Routes = [
   { path: 'login',      component: LoginComponent },
   { path: 'register',      component: RegisterComponent },
 
-  { path: '', redirectTo: '/LoginComponent', pathMatch: 'full'},
+  { path: '', redirectTo: sessionStorage.getItem('id') == null?  '/LoginComponent' : '/locations', pathMatch: 'full'},
   { path: '**', component: LoginComponent }
 ];
 

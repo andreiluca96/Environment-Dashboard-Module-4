@@ -1,54 +1,39 @@
-<html>
-  <body>
-
-    <div class="container ">
-      <form id="signin" class="form-group row" role="form">
-        <h1> Add Locations </h1>
-        <div class="input-group input-group-lg ">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-          <input id="id" type="id" class="form-control " [(ngModel)]="id" value="" placeholder="User ID">
-        </div>
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
-          <input id="alias" type="alias" class="form-control" [(ngModel)]="alias" value="" placeholder="Alias">
-        </div>
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-          <input id="latitude" type="latitude" class="form-control" [(ngModel)]="latitude" value="" placeholder="Latitude">
-        </div>
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
-          <input id="longitude" type="longitude" class="form-control" [(ngModel)]="longitude" value="" placeholder="Longitude">
-        </div>
-        <div style="text-align:center;">
-          <button type="submit" class="btn btn-primary btn-lg" style="background-color:#aeeaae;color:black"> Add Location</button>
-        </div>
-      </form>
+<div class="container ">
+  <form id="signin" class="form-group row" role="form" name="locations-form">
+    <h1> Add Locations </h1>
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-font"></i></span>
+      <input id="alias" name="alias" class="form-control" [(ngModel)]="alias" value="" placeholder="Alias">
     </div>
-
-    <div class="container">
-      <form id="signin" class="form-group row" role="form">
-        <h1> Get or Delete Locations </h1>
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-          <input id="id" type="id" class="form-control" [(ngModel)]="id" value="" placeholder="User ID">
-        </div>
-        <div style="text-align:center;">
-          <button type="submit" class="btn btn-primary btn-lg" style="background-color:#aeeaae;color:black">  Get Locations</button>
-        </div>
-        <div class="input-group input-group-lg">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-          <input id="id" type="id" class="form-control" [(ngModel)]="id" value="" placeholder="User ID">
-        </div>
-        <div style="text-align:center;">
-          <button type="submit" class="btn btn-primary btn-lg" style="background-color:#aeeaae;color:black">  Delete UserID</button>
-        </div>
-      </form>
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+      <input id="latitude" name="latitude" class="form-control" [(ngModel)]="latitude" value="" placeholder="Latitude">
     </div>
+    <div class="input-group input-group-lg">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+      <input id="longitude" name="longitude" class="form-control" [(ngModel)]="longitude" value="" placeholder="Longitude">
+    </div>
+    <div style="text-align:center;">
+      <button (click)="addLocation()" type="submit" class="btn btn-primary btn-lg" style="background-color:#aeeaae;color:black"> Add Location</button>
+    </div>
+  </form>
+</div>
 
-  </body>
-</html>
-
+<div class="container">
+  <form id="signin" class="form-group row" role="form">
+    <h1> Get Locations </h1>
+    <div style="text-align:center;">
+      <button type="submit" (click)="getLocations()" class="btn btn-primary btn-lg" style="background-color:#aeeaae;color:black">  Get Locations</button>
+    </div>
+  </form>
+  <ul class="list-group">
+      <ul *ngFor="let location of locations" class="list-group">
+        <li class="list-group-item"> <strong>Alias:</strong> {{location.alias}}</li>
+        <li class="list-group-item"> Latitude: {{location.latitude}}</li>
+        <li class="list-group-item"> Longitude: {{location.longitude}}</li>
+      </ul>
+  </ul>
+</div>
 <!--<table>
   <tr>
     <th>Username</th>

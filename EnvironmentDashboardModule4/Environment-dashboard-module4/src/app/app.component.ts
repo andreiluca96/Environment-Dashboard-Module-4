@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { LocationsComponent } from './locations/locations.component';
 import {LocationsService} from './locations.service';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,6 +9,23 @@ import { RouterModule, Routes } from '@angular/router';
   styleUrls: ['./app.component.css'],
   providers: [LocationsService]
   })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app works!';
+  logged : string;
+
+    ngOnInit() {
+       this.logged = sessionStorage.getItem('id');
+  }
+
+  logout()
+  {
+    sessionStorage.removeItem('id');
+    window.location.replace("/login");
+  }
+
+  events() {
+    window.location.replace("http://localhost:4200/" + sessionStorage.getItem('id'));
+  }
+
+ 
 }

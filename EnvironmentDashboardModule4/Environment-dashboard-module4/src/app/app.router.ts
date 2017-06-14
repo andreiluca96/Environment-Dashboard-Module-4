@@ -12,7 +12,7 @@ export const router: Routes = [
   { path: '/locations',component: LocationsComponent },
   { path: '/register',component:RegisterComponent},
   { path :'/login', component:LoginComponent},
-  { path: '**', component: AppComponent }
+  { path: '', component: AppComponent }
 ];
 
 // Deprecated provide

@@ -27,13 +27,18 @@ export class LocationsComponent implements OnInit {
 
   addLocation() {
     console.log('Adding location...');
+    console.log(this.latitude);
     this.newLocation.latitude = this.latitude;
     this.newLocation.alias = this.alias;
     this.newLocation.longitude = this.longitude;
 
     console.log(this.newLocation);
 
-    this.__locationSerive.addLocation(this.userId, this.newLocation);
+    this.__locationSerive.addLocation(this, sessionStorage.getItem('id'), this.newLocation);
+
+    this.latitude=null;
+    this.longitude=null;
+    this.alias=null;
   }
 
   deleteLocations() {
@@ -42,8 +47,10 @@ export class LocationsComponent implements OnInit {
   }
 
   getLocations() {
-    console.log('Getting locations...');
-    this.__locationSerive.getLocations(this.getUserId).subscribe( gettedLocations => this.locations = gettedLocations);
+    this.getUserId = sessionStorage.getItem('id');
+    this.__locationSerive.getLocations(this.getUserId).subscribe( gettedLocations => {
+      this.locations = gettedLocations;
+    });
   }
 
 }

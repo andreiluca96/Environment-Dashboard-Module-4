@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import {LocationsComponent} from './locations/locations.component'
 import {Headers, RequestOptions, Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/observable';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
-import { Locations } from './locations/locations';
+import { Locations, } from './locations/locations';
 
 @Injectable()
 export class LocationsService {
@@ -12,13 +13,16 @@ export class LocationsService {
 
   constructor(private __http: Http) {  }
 
-  addLocation(userId : string, newLocation : Locations) {
+  addLocation(lc:LocationsComponent,userId : string, newLocation : Locations) {
     let postURL = this.url + userId + '/locations/';
       console.log(JSON.stringify(newLocation));
       this.__http
       .post(postURL, JSON.stringify(newLocation), {headers: this.headers})
       .toPromise()
-      .then(res => res.json().data as Locations)
+      .then(res => {
+        lc.getLocations();
+        return res.json().data as Locations;
+      })
       .catch(this.handleError);
   }
 

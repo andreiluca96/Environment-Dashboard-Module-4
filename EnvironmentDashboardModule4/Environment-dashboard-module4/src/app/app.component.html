@@ -1,4 +1,4 @@
-<base href="/login">
+<base href="/locations">
 <script src="node_modules/angular2/bundles/http.dev.js"></script>
 <div class="wrapper">
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -17,10 +17,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="nav navbar-nav navbar-right">
-                <li><a routerLink="/users" routerLinkActive="active">Users</a></li>
-                <li><a routerLink="/locations" routerLinkActive="active">Locations</a></li>
-                <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
-                <li><button type="button" class="btn btn-success navbar-btn btn-circle"><a routerLink="/register" routerLinkActive="active">Register</a></button></li>
+                <li><button type="button" *ngIf="logged" (click)="events()" class="btn btn-success navbar-btn btn-circle">Events</button></li>
+                <li><a routerLink="/locations" routerLinkActive="active" *ngIf="logged">Locations</a></li>
+                <li><button type="button" *ngIf="logged" (click)="logout()" class="btn btn-success navbar-btn btn-circle">Logout</button></li>
+                <li><a routerLink="/login" routerLinkActive="active" *ngIf="logged==null">Login</a></li>
+                <li><button type="button" class="btn btn-success navbar-btn btn-circle" *ngIf="logged==null"><a routerLink="/register" routerLinkActive="active">Register</a></button></li>
             </ul>
 
         </div>
